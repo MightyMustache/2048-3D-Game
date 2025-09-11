@@ -2791,6 +2791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cube: {fileID: 192519851596618068, guid: 435595f5f79b52d449611a91f72127f1, type: 3}
+  _mergeVFX: {fileID: 3289981683589133275, guid: c555fe9d5205f4a4ba626e19ed8d0212, type: 3}
   _startLineTransform: {fileID: 2032029779}
   _startLineRenderer: {fileID: 2032029781}
   _menu: {fileID: 1005601779}

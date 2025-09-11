@@ -26,6 +26,7 @@ public class CubeCollision : MonoBehaviour
             if (GetComponent<Rigidbody>().velocity.magnitude > minHitSpeed && _cubeData.CubeType == collision.gameObject.GetComponent<CubeData>().CubeType)
             {
                 collision.gameObject.GetComponent<CubeUpdate>().CubeLevelUp(_cubeData.CubeType);
+                collision.gameObject.GetComponentInChildren<ParticleSystem>().Play();
                 OnCubeMerge?.Invoke(_cubeData.CubeType);
                 _sFXManager.PlayMergeSFX();
                 _cubeData.ReturnCube();
