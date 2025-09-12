@@ -54,9 +54,10 @@ public class PlayerControl : MonoBehaviour
             }
             if (_currentCube == null)
             {
+                _startPointerPosition = pointerPos;
                 CreateCube();
             }
-            else
+            else if (_startPointerPosition != pointerPos)
             {
                 MoveCube(pointerPos);
             }
@@ -77,25 +78,33 @@ public class PlayerControl : MonoBehaviour
     private void CreateCube()
     {
         _currentCube = _cubeSpawner.SpawnCube();
+
     }
 
     private void MoveCube(Vector2 pointerPos)
     {
-        Vector2 delta = pointerPos - _startPointerPosition;
-        _startPointerPosition = pointerPos;
+       
 
-        Vector3 curPos = _currentCube.transform.position;
-        float clampedX = Mathf.Clamp(
-            curPos.x + delta.x,
+            Vector2 delta = pointerPos - _startPointerPosition;
+            _startPointerPosition = pointerPos;
 
-            _startLineRender.bounds.min.x + _clampPosXOffset,
-            _startLineRender.bounds.max.x - _clampPosXOffset
-        );
+            Vector3 curPos = _currentCube.transform.position;
+            float clampedX = Mathf.Clamp(
+                curPos.x + delta.x * 0.01f,
 
-        _currentCube.transform.position = Vector3.Lerp(
+                _startLineRender.bounds.min.x + _clampPosXOffset,
+                _startLineRender.bounds.max.x - _clampPosXOffset
+            );
+
+            _currentCube.transform.position = new Vector3(clampedX, curPos.y, curPos.z);
+
+        /*
+        _currentCube.transform.position = Vector3.MoveTowards(
             curPos,
             new Vector3(clampedX, curPos.y, curPos.z),
             Time.deltaTime * _cubeMovingSpeed
+            
         );
+        */
     }
 }

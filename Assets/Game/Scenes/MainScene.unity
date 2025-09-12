@@ -3118,7 +3118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _throwForce: 60
-  _cubeMovingSpeed: 4
+  _cubeMovingSpeed: 13
 --- !u!114 &1971217444
 MonoBehaviour:
   m_ObjectHideFlags: 0
