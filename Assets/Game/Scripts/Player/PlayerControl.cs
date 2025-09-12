@@ -6,7 +6,7 @@ using Zenject;
 public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private float _throwForce = 5f;
-    [SerializeField] private float _cubeMovingSpeed = 1f;
+    [SerializeField] private float _cubeSensitivity = 0.01f;
 
     private float _clampPosXOffset = 0.75f;
     private CubeSpawner _cubeSpawner;
@@ -90,21 +90,12 @@ public class PlayerControl : MonoBehaviour
 
             Vector3 curPos = _currentCube.transform.position;
             float clampedX = Mathf.Clamp(
-                curPos.x + delta.x * 0.01f,
+                curPos.x + delta.x * _cubeSensitivity,
 
                 _startLineRender.bounds.min.x + _clampPosXOffset,
                 _startLineRender.bounds.max.x - _clampPosXOffset
             );
 
             _currentCube.transform.position = new Vector3(clampedX, curPos.y, curPos.z);
-
-        /*
-        _currentCube.transform.position = Vector3.MoveTowards(
-            curPos,
-            new Vector3(clampedX, curPos.y, curPos.z),
-            Time.deltaTime * _cubeMovingSpeed
-            
-        );
-        */
     }
 }
