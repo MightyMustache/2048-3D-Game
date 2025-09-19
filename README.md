@@ -15,19 +15,19 @@ When your cube collides with a cube of the same value, they merge into a larger 
 
 The game ends if:
 
-Your score drops below –80, or
+- Your score drops below –80, or
 
-A cube with the value 128 appears.
+- A cube with the value 128 appears.
 
 ✨ Features
 
-*Full 3D environment with smooth cube movement.
+* Full 3D environment with smooth cube movement.
 
-*Interactive tap-and-drag aiming mechanics.
+* Interactive tap-and-drag aiming mechanics.
 
-*Fun combination of spatial skill and puzzle logic.
+* Fun combination of spatial skill and puzzle logic.
 
-*Score tracking and progressive cube merging.
+* Score tracking and progressive cube merging.
 
 🚀 Technologies
 
